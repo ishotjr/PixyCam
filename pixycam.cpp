@@ -1,6 +1,6 @@
 /****************************************************************************
  *
- *   Copyright 2019 NXP 
+ *   Copyright 2019 NXP
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -12,8 +12,8 @@
  *    notice, this list of conditions and the following disclaimer in
  *    the documentation and/or other materials provided with the
  *    distribution.
- * 3. Neither the name of the copyright holder nor the names of its 
- *	  contributors may be used to endorse or promote products derived 
+ * 3. Neither the name of the copyright holder nor the names of its
+ *	  contributors may be used to endorse or promote products derived
  *	  from this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -39,9 +39,9 @@
  * @author Leo Mustafa
  */
 
-#include <px4_config.h>
-#include <px4_tasks.h>
-#include <px4_posix.h>
+#include <px4_platform_common/px4_config.h>
+#include <px4_platform_common/tasks.h>
+#include <px4_platform_common/posix.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <poll.h>
