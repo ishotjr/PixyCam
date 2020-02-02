@@ -43,6 +43,7 @@
 #include <px4_platform_common/tasks.h>
 #include <px4_platform_common/posix.h>
 
+#include <uORB/uORB.h>
 #include <uORB/topics/vehicle_attitude.h>
 
 #include <unistd.h>
