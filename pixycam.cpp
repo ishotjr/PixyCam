@@ -42,6 +42,9 @@
 #include <px4_platform_common/px4_config.h>
 #include <px4_platform_common/tasks.h>
 #include <px4_platform_common/posix.h>
+
+#include <uORB/topics/vehicle_attitude.h>
+
 #include <unistd.h>
 #include <stdio.h>
 #include <poll.h>
@@ -59,6 +62,11 @@ int pixycam_main(int argc, char *argv[])
 
 	Pixy2 pixy;
 
+	// TODO: convert to block!
+	/* advertise block topic */
+	struct vehicle_attitude_s att;
+	memset(&att, 0, sizeof(att));
+	orb_advert_t att_pub_fd = orb_advertise(ORB_ID(vehicle_attitude), &att);
 
 	if (pixy.init() == 0) {
 
@@ -83,6 +91,12 @@ int pixycam_main(int argc, char *argv[])
 					printf("%i", i);
 					printf(": ");
 					pixy.ccc.blocks[i].print();
+
+					att.q[0] = i;
+					att.q[1] = 1;
+					att.q[2] = 2;
+
+					orb_publish(ORB_ID(vehicle_attitude), att_pub_fd, &att);
 				}
 			}
 
